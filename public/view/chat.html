@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat Room - COMP3133 Chat App</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Chat Room Page -->
+    <div id="chatPage" class="vh-100">
+        <div class="container-fluid h-100 d-flex flex-column">
+            <!-- Header -->
+            <header class="bg-white shadow-sm p-3">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center">
+                            <div class="room-icon me-3">
+                                <span id="roomIcon" class="badge bg-primary rounded-circle p-3"></span>
+                            </div>
+                            <div>
+                                <h4 class="mb-0" id="roomName"></h4>
+                                <small class="text-muted" id="userCount">0 users</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <div class="d-flex align-items-center justify-content-end">
+                            <div class="me-3">
+                                <strong id="currentUsername"></strong>
+                                <br>
+                                <small class="text-muted">You</small>
+                            </div>
+                            <button id="leaveRoomBtn" class="btn btn-secondary me-2">Leave Room</button>
+                            <button id="logoutBtn" class="btn btn-danger">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <div class="row flex-grow-1 overflow-hidden">
+                <!-- Chat Messages -->
+                <div class="col-md-9 d-flex flex-column">
+                    <div id="messagesContainer" class="flex-grow-1 overflow-auto p-4">
+                        <div id="messagesList"></div>
+                        <div id="typingIndicator" class="typing-indicator d-none">
+                            <span class="typing-dot"></span>
+                            <span class="typing-dot"></span>
+                            <span class="typing-dot"></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Message Input -->
+                    <div class="border-top bg-white p-3">
+                        <form id="messageForm" class="d-flex">
+                            <input type="text" id="messageInput" class="form-control me-2" placeholder="Type a message..." autocomplete="off">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- User List Sidebar -->
+                <div class="col-md-3 border-start bg-light p-3">
+                    <h5 class="mb-3">Users</h5>
+                    <div id="usersList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Socket.io Client -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/chat.js"></script>
+</body>
+</html>
