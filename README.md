@@ -53,7 +53,3 @@ npm start
 - Data Science
 - Hackathons
 - NodeJS
-
-## Author
-
-COMP3133 Lab Test 1
